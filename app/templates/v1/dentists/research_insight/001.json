@@ -1,0 +1,4 @@
+{
+  "message": "Hi Dr. {owner_first_name}, {insight_topic} is trending this week in {locality}. Since your last Google post was {days_stale} days ago, would you like me to draft a quick post about this to capture local searches?",
+  "cta": "Reply YES to draft post"
+}

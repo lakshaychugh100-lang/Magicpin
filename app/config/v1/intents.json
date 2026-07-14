@@ -1,0 +1,48 @@
+[
+  {
+    "name": "auto_reply",
+    "patterns": [
+      "(?i)thank you for contacting us",
+      "(?i)our team will respond shortly",
+      "(?i)out of office",
+      "(?i)away from keyboard",
+      "(?i)will get back to you"
+    ],
+    "action": "wait",
+    "wait_seconds": 3600
+  },
+  {
+    "name": "hostile",
+    "patterns": [
+      "(?i)stop messaging me",
+      "(?i)useless spam",
+      "(?i)unsubscribe",
+      "(?i)don't contact me again",
+      "(?i)fuck off"
+    ],
+    "action": "end"
+  },
+  {
+    "name": "intent_transition_action",
+    "patterns": [
+      "(?i)done",
+      "(?i)sending",
+      "(?i)draft",
+      "(?i)here",
+      "(?i)confirm",
+      "(?i)proceed",
+      "(?i)next",
+      "(?i)ok lets do it"
+    ],
+    "anti_patterns": [
+      "(?i)would you",
+      "(?i)do you",
+      "(?i)can you tell",
+      "(?i)what if",
+      "(?i)how about"
+    ],
+    "action": "send",
+    "body": "Great, I've confirmed that and updated your profile.",
+    "cta": "Reply MENU for more options"
+  }
+]

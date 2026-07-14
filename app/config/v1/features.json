@@ -1,0 +1,26 @@
+[
+  {
+    "feature": "is_low_conversion",
+    "field": "merchant.performance.ctr",
+    "operator": "<",
+    "threshold": 0.05
+  },
+  {
+    "feature": "has_active_offer",
+    "field": "merchant.offers",
+    "operator": "has_status",
+    "threshold": "active"
+  },
+  {
+    "feature": "stale_posts",
+    "field": "merchant.signals",
+    "operator": "contains_prefix",
+    "threshold": "stale_posts"
+  },
+  {
+    "feature": "is_research_trigger",
+    "field": "trigger.kind",
+    "operator": "==",
+    "threshold": "research_digest"
+  }
+]

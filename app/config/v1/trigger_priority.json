@@ -1,0 +1,8 @@
+{
+  "festival": 100,
+  "demand_spike": 90,
+  "competitor": 80,
+  "low_conversion": 70,
+  "research_digest": 60,
+  "stale_posts": 50
+}

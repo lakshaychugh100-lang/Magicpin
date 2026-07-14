@@ -1,0 +1,17 @@
+[
+  {
+    "condition": "is_research_trigger",
+    "strategy": "research_insight",
+    "weight": 10
+  },
+  {
+    "condition": "is_low_conversion",
+    "strategy": "push_offer",
+    "weight": 5
+  },
+  {
+    "condition": "stale_posts",
+    "strategy": "listing_update",
+    "weight": 8
+  }
+]
