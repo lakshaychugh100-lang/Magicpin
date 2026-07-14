@@ -9,7 +9,10 @@ from app.engine.compose import ComposeEngine
 
 app = FastAPI(title="Vera Message Engine")
 
-store = SQLiteStore("local_data.db")
+import os
+
+db_path = os.environ.get("DB_PATH", "local_data.db")
+store = SQLiteStore(db_path)
 compose_engine = ComposeEngine()
 
 app.include_router(context_router, prefix="/v1")
