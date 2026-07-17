@@ -6,7 +6,7 @@ from app.models.trigger import Trigger
 class DefaultStrategy(Strategy):
     def prepare_variables(self, merchant: Merchant, trigger: Trigger) -> Dict[str, Any]:
         return {
-            "merchant_name": merchant.identity.get("name", "there"),
+            "merchant_name": getattr(merchant.identity, "name", "there"),
             "trigger_kind": trigger.kind
         }
 

@@ -29,8 +29,18 @@ def test_triggers():
     
     # Push a dummy merchant
     requests.post(f"{BOT_URL}/context", json={
-        "scope": "merchant", "context_id": "001", "version": 1,
-        "payload": {"merchant_id": "001", "identity": {"name": "Test Merchant"}},
+        "scope": "merchant", "context_id": "001", "version": 999,
+        "payload": {
+            "merchant_id": "001",
+            "category_slug": "health_medical",
+            "identity": {
+                "name": "Test Merchant",
+                "city": "Test City",
+                "locality": "Test Locality",
+                "place_id": "P123",
+                "verified": True
+            }
+        },
         "delivered_at": "2026-07-15T00:00:00Z"
     })
     
@@ -39,7 +49,7 @@ def test_triggers():
         
         # Push the trigger context
         requests.post(f"{BOT_URL}/context", json={
-            "scope": "trigger", "context_id": tid, "version": 1,
+            "scope": "trigger", "context_id": tid, "version": 999,
             "payload": {
                 "id": tid,
                 "scope": "merchant",
