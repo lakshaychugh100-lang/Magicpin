@@ -21,7 +21,7 @@ Author: magicpin AI Challenge Team
 # =============================================================================
 
 # Your bot's URL (where your bot is running)
-BOT_URL = "http://localhost:8000"
+BOT_URL = "https://magicpin-bot.up.railway.app"
 
 import os
 

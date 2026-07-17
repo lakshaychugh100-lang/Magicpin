@@ -1,6 +1,7 @@
 [
   {
     "name": "auto_reply",
+    "role": "merchant",
     "patterns": [
       "(?i)thank you for contacting us",
       "(?i)our team will respond shortly",
@@ -13,6 +14,7 @@
   },
   {
     "name": "hostile",
+    "role": "merchant",
     "patterns": [
       "(?i)stop messaging me",
       "(?i)useless spam",
@@ -23,7 +25,20 @@
     "action": "end"
   },
   {
+    "name": "technical_followup",
+    "role": "merchant",
+    "patterns": [
+      "(?i)need help auditing",
+      "(?i)x-ray setup",
+      "(?i)d-speed film"
+    ],
+    "action": "send",
+    "body": "Got it! An old D-speed film unit needs special care. I'm connecting you with our technical specialist who can help with your X-ray setup audit. They'll reach out soon!",
+    "cta": "Reply MENU"
+  },
+  {
     "name": "intent_transition_action",
+    "role": "merchant",
     "patterns": [
       "(?i)done",
       "(?i)sending",

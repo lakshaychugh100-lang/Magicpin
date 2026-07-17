@@ -7,10 +7,14 @@ class IntentEngine:
         with open(config_path, "r") as f:
             self.intents = json.load(f)
 
-    def evaluate(self, message: str) -> Dict[str, Any]:
+    def evaluate(self, message: str, from_role: str = "merchant") -> Dict[str, Any]:
         """Evaluates a message against intents and returns the configured action."""
         
         for intent in self.intents:
+            # Check role if specified
+            if "role" in intent and intent["role"] != from_role:
+                continue
+                
             matched = False
             for pattern in intent.get("patterns", []):
                 if re.search(pattern, message):
@@ -37,6 +41,13 @@ class IntentEngine:
                     return result
                     
         # Default fallback
+        if from_role == "customer":
+            return {
+                "action": "send",
+                "body": "Got it! Your slot request has been recorded. Our merchant will confirm it shortly.",
+                "cta": "Reply MENU"
+            }
+        
         return {
             "action": "send",
             "body": "Got it. How else can I help?",

@@ -9,7 +9,7 @@ class DecisionTrace(BaseModel):
     confidence: float
 
 class EngineResponse(BaseModel):
-    message: str
+    body: str
     cta: str
     send_as: str
     suppression_key: str

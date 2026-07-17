@@ -1,0 +1,1 @@
+Hi {{merchant_name}}, we noticed a recent update regarding your {{trigger_kind}}. Let us know if you need any assistance navigating this or updating your profile to stay ahead!

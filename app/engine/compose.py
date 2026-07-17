@@ -27,7 +27,9 @@ class ComposeEngine:
         
         # Register strategies (in real app, loaded dynamically)
         from app.strategies.research_insight import ResearchInsightStrategy
+        from app.strategies.default_strategy import DefaultStrategy
         StrategyRegistry.register("research_insight", ResearchInsightStrategy)
+        StrategyRegistry.register("default_strategy", DefaultStrategy)
 
     def process(self, merchant: Merchant, trigger: Trigger, customer: Customer = None) -> EngineResponse:
         features = self.feature_extractor.extract(merchant, trigger, customer)
@@ -56,8 +58,13 @@ class ComposeEngine:
             confidence=1.0 # placeholder
         )
         
+        # Enforce 320 char limit
+        final_body = rendered["message"]
+        if len(final_body) > 320:
+            final_body = final_body[:317] + "..."
+        
         return EngineResponse(
-            message=rendered["message"],
+            body=final_body,
             cta=rendered["cta"],
             send_as="Vera",
             suppression_key=suppression_key,
